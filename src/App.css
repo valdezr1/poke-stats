@@ -1,0 +1,38 @@
+.App {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.PokeForm{
+    width: 100%;
+    height: 100%;
+}
+
+.PokeList{
+    width: 100%;
+    height: auto;
+}
+
+.PokeForm input{
+    text-align:center
+}
+
+
+.App h1{
+    font-size: 20px;
+}
+
+.App h2 {
+    font-size : 15px;
+}
+
+.App p {
+    font-size : 10px;
+}
+
+.footer{
+    font-size: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 1%;
+}
