@@ -62,7 +62,6 @@ class PokeList extends Component {
                                                 position: 'bottom'
                                             },
                                             maintainAspectRatio: false,
-
                                         }}
                                     />
                                     <br/><br/><br/>
