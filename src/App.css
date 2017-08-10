@@ -8,11 +8,6 @@
     height: 100%;
 }
 
-.PokeList{
-    width: 100%;
-    height: auto;
-}
-
 .PokeForm input{
     text-align:center
 }
@@ -36,3 +31,4 @@
     top: 0;
     right: 1%;
 }
+

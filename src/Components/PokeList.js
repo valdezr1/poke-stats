@@ -56,15 +56,18 @@ class PokeList extends Component {
                                             title: {
                                                 display: this.props.pokemonName,
                                                 text: this.props.pokemonName + ' Stats',
-                                                fontSize: 25
+                                                fontSize: 50
                                             },
                                             legend:{
                                                 position: 'bottom'
                                             },
-                                            maintainAspectRatio: false,
+
+                                            maintainAspectRatio:false,
+                                            responsive: true,
+
                                         }}
                                     />
-                                    <br/><br/><br/>
+
                                 </div>
                             )
                         }
