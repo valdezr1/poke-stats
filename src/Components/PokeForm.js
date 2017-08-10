@@ -11,7 +11,7 @@ class PokeForm extends Component {
             pokemonName : "",
             pokemonStats: [],
             pokemonPic : "",
-            POKE_URL : "http://pokeapi.co/api/v2/pokemon/",
+            POKE_URL : "https://pokeapi.co/api/v2/pokemon/",
 
             errorMsg : "",
         };

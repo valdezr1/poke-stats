@@ -61,10 +61,11 @@ class PokeList extends Component {
                                             legend:{
                                                 position: 'bottom'
                                             },
+                                            maintainAspectRatio: false,
 
                                         }}
                                     />
-                                    <br/><br/>
+                                    <br/><br/><br/>
                                 </div>
                             )
                         }

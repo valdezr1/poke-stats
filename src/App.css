@@ -33,6 +33,6 @@
 .footer{
     font-size: 5px;
     position: fixed;
-    bottom: 0;
+    top: 0;
     right: 1%;
 }
