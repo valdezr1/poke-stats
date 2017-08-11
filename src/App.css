@@ -10,10 +10,11 @@
 .PokeList{
     height:100%;
     width: 100%;
+
 }
 
 .PokeForm input{
-    text-align:center
+    text-align:center;
 }
 
 .App h1{

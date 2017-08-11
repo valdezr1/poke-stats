@@ -34,25 +34,25 @@ class PokeForm extends Component {
             .catch(error => {
                 this.setState({
                     pokemonPic : "",
-                    errorMsg : error.response.data.detail
+                    errorMsg : error.response.data.detail,
                 })
             })
     }
 
-    submitPokemon(){
-
+    submitPokemon(e){
+        e.preventDefault();
         let pokemon = document.getElementById("userPokemon").value.toLowerCase().replace(/\s/g,'');
+        document.getElementById("userPokemon").value = "";
         this.getPokemonInfo(pokemon);
 
     }
-
 
     render() {
 
             return (
                 <div className="PokeForm">
 
-                    <h1><strong>PokeStats </strong></h1>
+                    <h1><strong>PokeStats</strong></h1>
 
                     <h2>Enter a Pokemon's Name or ID Number and see its Base Stats </h2>
                     <p>
@@ -62,7 +62,7 @@ class PokeForm extends Component {
                         <br/>Example: "Deoxys-normal", "Charizard-Mega-X, Mr-Mime"
                     </p>
 
-                    <form>
+                    <form onSubmit={this.submitPokemon}>
                         <input type="text" id="userPokemon" placeholder="Insert Pokemon"/>
                         <input type="button" value="Get Stats" onClick={this.submitPokemon}/>
                     </form>

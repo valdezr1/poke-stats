@@ -50,7 +50,7 @@ class PokeList extends Component {
                             count++;
                             return (
 
-                                <div  className="chart" key={s.stat.name}>
+                                <div key={s.stat.name}>
                                     <center>
                                     <Polar
                                         data = {statObj}
