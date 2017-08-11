@@ -49,9 +49,13 @@ class PokeList extends Component {
                         if (count !== 1) {
                             count++;
                             return (
-                                <div  className="PokeList" key={s.stat.name}>
+
+                                <div  className="chart" key={s.stat.name}>
+                                    <center>
                                     <Polar
                                         data = {statObj}
+                                        height = {500}
+                                        width = {window.width}
                                         options = {{
                                             title: {
                                                 display: this.props.pokemonName,
@@ -61,13 +65,12 @@ class PokeList extends Component {
                                             legend:{
                                                 position: 'bottom'
                                             },
-
                                             maintainAspectRatio:false,
-                                            responsive: true,
+                                            responsive: false,
 
                                         }}
                                     />
-
+                                    </center>
                                 </div>
                             )
                         }
