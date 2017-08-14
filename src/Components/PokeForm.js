@@ -42,7 +42,6 @@ class PokeForm extends Component {
     submitPokemon(e){
         e.preventDefault();
         let pokemon = document.getElementById("userPokemon").value.toLowerCase().replace(/\s/g,'');
-        document.getElementById("userPokemon").value = "";
         this.getPokemonInfo(pokemon);
 
     }
