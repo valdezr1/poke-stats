@@ -1,5 +1,5 @@
 PokeStats allows a user to type in a Pokemon by ID number or by Name. 
-It grabs data from the PokeAPI (http://pokeapi.co/) and charts the base statistics of the requested Pokemon into an interactive polar chart. 
+It grabs data from the PokeAPI (http://pokeapi.co/) and charts the base statistics of the requested Pokemon into an interactive polar chart. This application works well, on both mobile and desktop devices. 
 This application was created primarily using React (https://facebook.github.io/react/) and ChartJS (http://www.chartjs.org/). 
 
 
