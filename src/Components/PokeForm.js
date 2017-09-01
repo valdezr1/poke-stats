@@ -14,7 +14,7 @@ class PokeForm extends Component {
             POKE_URL : "https://pokeapi.co/api/v2/pokemon/",
 
             errorMsg : "",
-            loading : <img className=".loading"/>
+            loading : <div><img className=".loading"/></div>
         };
 
         this.getPokemonInfo = this.getPokemonInfo.bind(this);
@@ -52,14 +52,14 @@ class PokeForm extends Component {
                     pokemonStats: response.data.stats,
                     pokemonName : formattedPokemonName.replace(/-/g, ' '),
                     errorMsg : "",
-                    loading : <img className=".loading"/>
+                    loading : <img className="loading"/>
                 });
             })
             .catch(error => {
                 this.setState({
                     pokemonPic : "",
                     errorMsg : error.response.data.detail,
-                    loading: <img className=".loading"/>
+                    loading: <img className="loading"/>
                 })
             })
     }
@@ -68,7 +68,7 @@ class PokeForm extends Component {
         e.preventDefault();
         let pokemon = document.getElementById("userPokemon").value.toLowerCase().replace(/\s/g,'');
         this.setState({
-            loading: <img className="loading" src ={require("../Loading.png")}/>,
+            loading: <div><p className="inlineBlock">Finding and Catching</p><img className="loading" src ={require("../Loading.png")}/><p className="inlineBlock">Requested Pokemon</p></div>,
         }, () => {
             this.getPokemonInfo(pokemon);
         });

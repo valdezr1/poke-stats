@@ -32,6 +32,11 @@
 .loading {
     animation: loading-spin infinite 1s linear;
     height: 30px;
+    display: inline-block;
+}
+
+.inlineBlock {
+    display : inline-block;
 }
 
 @keyframes loading-spin {
