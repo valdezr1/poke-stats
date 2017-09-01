@@ -83,9 +83,9 @@ class PokeForm extends Component {
 
                     <h2>Enter a Pokemon's Name or ID Number and see its Base Stats </h2>
                     <p>
-                        [Currently compatible for pokemon in Gen VI or earlier]<br/></p>
+                        [Currently compatible for Pokemon in Gen VI or earlier]<br/></p>
                     <p>
-                        Note: To input pokemon with forms or characters in its name <br/>(Deoxys, Mega, Mr. Mime, etc.), add a "-" as the space.
+                        Note: To input Pokemon with forms or characters in its name <br/>(Deoxys, Mega, Mr. Mime, etc.), add a "-" as the space.
                         <br/>Example: "Deoxys-normal", "Charizard-Mega-X, Mr-Mime"
                     </p>
 
