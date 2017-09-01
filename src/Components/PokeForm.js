@@ -23,30 +23,29 @@ class PokeForm extends Component {
 
     getPokemonInfo(pokemon) {
 
-        let formattedPokemonName = pokemon;
-        let tamperVar = pokemon;
-        let indexOfDash;
-        let caps = [0];
-        let capsIndex = 0;
-
-        while(tamperVar.indexOf('-') !== -1) {
-            indexOfDash = tamperVar.indexOf('-');
-            caps.push(indexOfDash + caps[capsIndex] + capsIndex);
-            tamperVar = tamperVar.slice(indexOfDash + 1);
-            capsIndex++;
-        }
-
-        for(let i = 1; i < caps.length; i++){
-            caps[i] = caps[i] + 1;
-        }
-
-        for(let j = 0; j < caps.length; j++){
-            formattedPokemonName = formattedPokemonName.replace(formattedPokemonName.charAt(caps[j]), formattedPokemonName.charAt(caps[j]).toUpperCase());
-
-        }
-
         return axios.get(this.state.POKE_URL + pokemon + "/")
             .then((response) => {
+                let formattedPokemonName = response.data.name;
+                let tamperVar = response.data.name;
+                let indexOfDash;
+                let caps = [0];
+                let capsIndex = 0;
+
+                while(tamperVar.indexOf('-') !== -1) {
+                    indexOfDash = tamperVar.indexOf('-');
+                    caps.push(indexOfDash + caps[capsIndex] + capsIndex);
+                    tamperVar = tamperVar.slice(indexOfDash + 1);
+                    capsIndex++;
+                }
+
+                for(let i = 1; i < caps.length; i++){
+                    caps[i] = caps[i] + 1;
+                }
+
+                for(let j = 0; j < caps.length; j++){
+                    formattedPokemonName = formattedPokemonName.replace(formattedPokemonName.charAt(caps[j]), formattedPokemonName.charAt(caps[j]).toUpperCase());
+
+                }
                 this.setState({
                     pokemonPic : response.data.sprites.front_default,
                     pokemonStats: response.data.stats,
