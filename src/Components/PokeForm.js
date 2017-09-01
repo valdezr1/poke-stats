@@ -14,6 +14,7 @@ class PokeForm extends Component {
             POKE_URL : "https://pokeapi.co/api/v2/pokemon/",
 
             errorMsg : "",
+            loading : <img className=".loading"/>
         };
 
         this.getPokemonInfo = this.getPokemonInfo.bind(this);
@@ -22,19 +23,43 @@ class PokeForm extends Component {
 
     getPokemonInfo(pokemon) {
 
+        let formattedPokemonName = pokemon;
+        let tamperVar = pokemon;
+        let indexOfDash;
+        let caps = [0];
+        let capsIndex = 0;
+
+        while(tamperVar.indexOf('-') !== -1) {
+            indexOfDash = tamperVar.indexOf('-');
+            caps.push(indexOfDash + caps[capsIndex] + capsIndex);
+            tamperVar = tamperVar.slice(indexOfDash + 1);
+            capsIndex++;
+        }
+
+        for(let i = 1; i < caps.length; i++){
+            caps[i] = caps[i] + 1;
+        }
+
+        for(let j = 0; j < caps.length; j++){
+            formattedPokemonName = formattedPokemonName.replace(formattedPokemonName.charAt(caps[j]), formattedPokemonName.charAt(caps[j]).toUpperCase());
+
+        }
+
         return axios.get(this.state.POKE_URL + pokemon + "/")
             .then((response) => {
                 this.setState({
                     pokemonPic : response.data.sprites.front_default,
                     pokemonStats: response.data.stats,
-                    pokemonName : response.data.name.charAt(0).toUpperCase() + response.data.name.slice(1) ,
+                    pokemonName : formattedPokemonName.replace(/-/g, ' '),
                     errorMsg : "",
+                    loading : <img className=".loading"/>
                 });
             })
             .catch(error => {
                 this.setState({
                     pokemonPic : "",
                     errorMsg : error.response.data.detail,
+                    loading: <img className=".loading"/>
                 })
             })
     }
@@ -42,8 +67,11 @@ class PokeForm extends Component {
     submitPokemon(e){
         e.preventDefault();
         let pokemon = document.getElementById("userPokemon").value.toLowerCase().replace(/\s/g,'');
-        this.getPokemonInfo(pokemon);
-
+        this.setState({
+            loading: <img className="loading" src ={require("../Loading.png")}/>,
+        }, () => {
+            this.getPokemonInfo(pokemon);
+        });
     }
 
     render() {
@@ -64,6 +92,8 @@ class PokeForm extends Component {
                     <form onSubmit={this.submitPokemon}>
                         <input type="text" id="userPokemon" placeholder="Insert Pokemon"/>
                         <input type="button" value="Get Stats" onClick={this.submitPokemon}/>
+                        <br/>
+                        {this.state.loading}
                     </form>
 
                     <img className="img-fluid" src={this.state.pokemonPic} alt=""/>

@@ -29,6 +29,16 @@
     font-size : 10px;
 }
 
+.loading {
+    animation: loading-spin infinite 1s linear;
+    height: 30px;
+}
+
+@keyframes loading-spin {
+    from { transform : rotate(0deg); }
+    to { transform : rotate(360deg); }
+}
+
 .footer{
     font-size: 5px;
     position: fixed;
